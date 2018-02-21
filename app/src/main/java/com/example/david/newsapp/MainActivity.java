@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (isConnected()) {
             new GetDataAsync().execute("https://newsapi.org/v1/sources");
-        }
-        else {
+        } else {
             Toast.makeText(this, "No Internet", Toast.LENGTH_SHORT).show();
         }
 
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         pd.show();
 
     }
-
 
 
     public void sendData(ArrayList<Source> sources) {
@@ -128,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
             if (result != null) {
                 sourceList = result;
 
-                LinearLayout parentLayout = (LinearLayout)findViewById(R.id.layout);
+                LinearLayout parentLayout = (LinearLayout) findViewById(R.id.layout);
                 LayoutInflater layoutInflater = getLayoutInflater();
                 View view;
 
@@ -155,45 +153,20 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-                    }
                 }
-
-                Log.d("demo", result.toString());
-                sendData(result);
-
             }
 
+            sendData(result);
 
         }
-
 
     }
 
-
-/*
-    public void onClick(View v) {
-        //Toast.makeText(this, "Its Clicking...!", Toast.LENGTH_SHORT).show();
+}
 
 
 
-        TextView textView = findViewById(v.getId());
-        String name = textView.getText().toString();
-        Source source = null;
 
-        for (int i =0; i < sourceList.size(); i++) {
-            if (name == sourceList.get(i).getName()) {
-                source = sourceList.get(i);
-            }
-        }
-
-        Intent i = new Intent(MainActivity.this, NewsActivity.class);
-        i.putExtra(SOURCE_KEY, source);
-        startActivity(i);
-
-    }*/
-
-
-// End MainActivity
 
 
 
